@@ -58,19 +58,19 @@ public class CitiesWeatherOverviewActivity extends BaseActivity{
         adapter.setOnItemClickListener(new CitiesRecycleViewAdapter.MyClickListener() {
             @Override
             public void onItemClick(int position, View view) {
-                final City city;
-                try {
-                    city = adapter.getItem(position);
-                    if (city != null) {
-                        CityWeatherDetailsActivity_.intent(view.getContext())
-                                .city(city)
-                                .showButtonSave(false)
-                                .start();
-                    }
-                } catch (Exception e) {
-                    e.getStackTrace();
-                    showSnackBarMsg(textViewLabel, getString(R.string.generic_error));
-                }
+//                final City city;
+//                try {
+//                    city = adapter.getItem(position);
+//                    if (city != null) {
+//                        CityWeatherDetailsActivity_.intent(view.getContext())
+//                                .city(city)
+//                                .showButtonSave(false)
+//                                .start();
+//                    }
+//                } catch (Exception e) {
+//                    e.getStackTrace();
+//                    showSnackBarMsg(textViewLabel, getString(R.string.generic_error));
+//                }
             }
         });
     }

@@ -10,6 +10,7 @@ import com.example.devs.openweather.R;
 import com.example.devs.openweather.activities.base.BaseActivity;
 import com.example.devs.openweather.database.DatabaseHelper;
 import com.example.devs.openweather.model.City;
+import com.example.devs.openweather.model.CityWithWeather;
 import com.j256.ormlite.dao.Dao;
 
 import org.androidannotations.annotations.AfterViews;
@@ -25,7 +26,7 @@ import java.util.List;
 public class CityWeatherDetailsActivity extends BaseActivity {
 
     @Extra
-    City city;
+    CityWithWeather cityWithWeather;
 
     @Extra
     boolean showButtonSave;
@@ -44,8 +45,8 @@ public class CityWeatherDetailsActivity extends BaseActivity {
 
     @AfterViews
     protected void afterViews() {
-        final String weather = city.getCityWeatherList().get(0).getWeatherList().get(0).getMain();
-        final String weatherDescription = city.getCityWeatherList().get(0).getWeatherList().get(0).getDescription();
+        final String weather = cityWithWeather.getCityWeatherList().get(0).getWeatherList().get(0).getMain();
+        final String weatherDescription = cityWithWeather.getCityWeatherList().get(0).getWeatherList().get(0).getDescription();
 
         textViewLabelWeather.setText(weather);
         textViewLabelWeatherDescription.setText(weatherDescription);
@@ -56,23 +57,23 @@ public class CityWeatherDetailsActivity extends BaseActivity {
     }
 
     public void buttonSaveOnClick(View view) {
-        String msg = getString(R.string.successful_save);
-
-        try {
-            final List<City> cities = moviesDao.queryForEq(City.NAME, city.getName());
-
-            if(!cities.isEmpty()) {
-                final City localCity = cities.get(0);
-                city.setId(localCity.getId());
-                msg = getString(R.string.city_already_exist);
-            }
-
-            moviesDao.createOrUpdate(city);
-            Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
-            CitiesWeatherOverviewActivity_.intent(this).flags(Intent.FLAG_ACTIVITY_CLEAR_TOP).start();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        String msg = getString(R.string.successful_save);
+//
+//        try {
+//            final List<City> cities = moviesDao.queryForEq(City.NAME, cityWithWeather.getCity().getName());
+//
+//            if(!cities.isEmpty()) {
+//                final City localCity = cities.get(0);
+//                city.setId(localCity.getId());
+//                msg = getString(R.string.city_already_exist);
+//            }
+//
+//            moviesDao.createOrUpdate(city);
+//            Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+//            CitiesWeatherOverviewActivity_.intent(this).flags(Intent.FLAG_ACTIVITY_CLEAR_TOP).start();
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
     }
 }

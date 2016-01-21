@@ -12,22 +12,16 @@ public class City implements Serializable {
     public static final String NAME = "name";
 
     @DatabaseField
-    @SerializedName("id")
     @Expose
     private long id;
 
     @DatabaseField
-    @SerializedName("name")
     @Expose
     private String name;
 
-    @SerializedName("country")
     @Expose
     private String country;
 
-    @SerializedName("list")
-    @Expose
-    private List<CityWeather> cityWeatherList;
 
     public long getId() {
         return id;
@@ -39,9 +33,5 @@ public class City implements Serializable {
 
     public String getName() {
         return name;
-    }
-
-    public List<CityWeather> getCityWeatherList() {
-        return cityWeatherList;
     }
 }

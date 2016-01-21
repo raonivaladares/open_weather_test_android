@@ -8,7 +8,7 @@ import android.widget.EditText;
 
 import com.example.devs.openweather.R;
 import com.example.devs.openweather.activities.base.BaseActivity;
-import com.example.devs.openweather.model.City;
+import com.example.devs.openweather.model.CityWithWeather;
 import com.example.devs.openweather.util.Constants;
 import com.example.devs.openweather.webservice.RestClient;
 
@@ -60,12 +60,12 @@ public class SearchActivity extends BaseActivity {
             String searchedCity = URLEncoder.encode(editText.getText().toString(), Constants.UTF8);
             if (!editText.getText().toString().isEmpty()) {
                 showProgressDialog();
-                City city = restClient.searchCityWeather(searchedCity);
+                CityWithWeather cityWithWeather = restClient.searchCityWeather(searchedCity);
                 dismissProgressDialog();
-                if(city == null) {
+                if(cityWithWeather == null) {
                     showSnackBarMsg(editText, "O.o");
                 } else {
-                    openDetails(city);
+                    openDetails(cityWithWeather);
                 }
             } else {
                 showSnackBarMsg(editText, getString(R.string.field_not_filled));
@@ -95,9 +95,9 @@ public class SearchActivity extends BaseActivity {
     }
 
     @UiThread
-    public void openDetails(final City city) {
+    public void openDetails(final CityWithWeather cityWithWeather) {
         CityWeatherDetailsActivity_.intent(this)
-                .city(city)
+                .cityWithWeather(cityWithWeather)
                 .showButtonSave(true)
                 .start();
     }

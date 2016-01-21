@@ -1,6 +1,6 @@
 package com.example.devs.openweather.webservice;
 
-import com.example.devs.openweather.model.City;
+import com.example.devs.openweather.model.CityWithWeather;
 
 import org.androidannotations.annotations.rest.Get;
 import org.androidannotations.annotations.rest.Rest;
@@ -11,6 +11,6 @@ import org.springframework.http.converter.json.GsonHttpMessageConverter;
 public interface RestClient {
 
     @Get("/daily?q={city}&APPID=afe02b4969b9b87688ab8b24c4ee5a77")
-    City searchCityWeather(final String city);
+    CityWithWeather searchCityWeather(final String city);
 
 }
