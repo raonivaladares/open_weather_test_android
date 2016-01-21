@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">open weather</string>
+
+    <string name="save_city">SALVAR CIDADE</string>
+
+    <string name="search_city">Procurar Cidade</string>
+    <string name="search_city_name">Busque pelo nome da cidade</string>
+    <string name="empty_city_list">Lista de cidades vazia</string>
+
+    <string name="successful_save">Salvo com sucesso</string>
+    <string name="city_already_exist">Cidade já existe na sua lista</string>
+
+    <string name="verify_connection">Verifique sua conexão com a internet</string>
+
+    <string name="search_not_found">Não foi efetuar a busca, por favor tente novamente.</string>
+
+    <string name="loading">Carregando...</string>
+    <string name="wait">Por favor aguarde...</string>
+
+    <string name="generic_error">Um error ocorreu</string>
+    <string name="field_not_filled">Por favor preencha o campo :)</string>
+
 </resources>
